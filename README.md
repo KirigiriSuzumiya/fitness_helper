@@ -13,6 +13,8 @@
 
 [B站视频链接](https://www.bilibili.com/video/BV1ke4y1i7uF/)
 
+[AIStudio链接](https://aistudio.baidu.com/aistudio/projectdetail/4653310)
+
 ![image-20221006164453210](README.assets/image-20221006164453210.png)
 
 
