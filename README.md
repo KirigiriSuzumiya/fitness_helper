@@ -11,7 +11,11 @@
 
 以打太极为例，我是一个手脚不协调的运动白痴，他会等我把动作摆对才会继续。
 
-<iframe src="//player.bilibili.com/player.html?aid=429584233&bvid=BV1ke4y1i7uF" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  width="100%" height="560px"> </iframe>
+[B站视频链接](https://www.bilibili.com/video/BV1ke4y1i7uF/)
+
+![image-20221006164453210](README.assets/image-20221006164453210.png)
+
+
 
 
 当然不仅仅是太极，你也可以方便的**导入自己喜欢的视频**，然后让程序监督你成为视频中的猛男
@@ -29,6 +33,8 @@ pip install -r requirements.txt
 ```
 
 ### 1.2 解析视频
+
+修改开头的文件地址之后
 
 直接运行`video_preprocessing.py`
 
