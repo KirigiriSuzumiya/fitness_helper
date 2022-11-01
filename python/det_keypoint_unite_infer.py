@@ -148,6 +148,8 @@ def topdown_unite_predict_video(detector,
 
     while (1):
         ret, frame = capture.read()
+        if camera_id != -1:
+            frame = cv2.flip(frame, 1)
         if not ret:
             break
         index += 1
@@ -172,11 +174,16 @@ def topdown_unite_predict_video(detector,
 
             keypoint_res['keypoint'][0][0] = smooth_keypoints.tolist()
 
-        im = visualize_pose(
-            frame,
-            keypoint_res,
-            visual_thresh=FLAGS.keypoint_threshold,
-            returnimg=True)
+        if camera_id != -1:
+            np.save(os.path.join(os.path.dirname(__file__), "frame.npy"), frame)
+            # cv2.imwrite(os.path.join(os.path.dirname(__file__), "frame.jpg"), frame)
+            im = frame
+        else:
+            im = visualize_pose(
+                frame,
+                keypoint_res,
+                visual_thresh=FLAGS.keypoint_threshold,
+                returnimg=True)
 
         if save_res:
             store_res.append([
@@ -185,12 +192,12 @@ def topdown_unite_predict_video(detector,
             ])
             with open("temp.json", 'w') as wf:
                 json.dump(store_res[-1], wf, indent=4)
-
-        writer.write(im)
         if camera_id != -1:
-            cv2.imshow('Mask Detection', im)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            writer.write(im)
+        # if camera_id != -1:
+        #     cv2.imshow('Mask Detection', im)
+        #     if cv2.waitKey(1) & 0xFF == ord('q'):
+        #         break
     writer.release()
     print('output_video saved to: {}'.format(out_path))
     if save_res:

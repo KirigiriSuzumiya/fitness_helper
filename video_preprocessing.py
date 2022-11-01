@@ -16,3 +16,5 @@ def video_processer(video_path):
     shutil.copy("det_keypoint_unite_video_results.json", os.path.join(target_path, video_name + ".json"))
     os.remove("det_keypoint_unite_video_results.json")
     print("json处理完成")
+
+video_processer(r"C:\Users\boyif\Desktop\高尔夫1.mp4")
